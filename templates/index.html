@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>🌿 PlantCare AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+.result-card img{
+    width:180px;
+    margin-top:10px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.3);
+}
+.buy-btn{
+    display:inline-block;
+    margin-top:12px;
+    background:#00ff90;
+    color:#000;
+    padding:8px 16px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">🌿 PlantCare AI</div>
+    <ul class="nav-links">
+        <li onclick="goPage('home')">Home</li>
+        <li onclick="goPage('diagnose')">Diagnose</li>
+        <li onclick="goPage('library')">Disease Library</li>
+        <li onclick="goPage('how')">How It Works</li>
+        <li onclick="goPage('agrivision')">CHATBOT AI</li>
+    </ul>
+</nav>
+
+<!--  HOME page pura atructure  -->
+<section id="homePage" class="page active">
+<div class="hero">
+
+<div class="hero-left">
+<h1>Diagnose <span>Plant Diseases</span> Instantly</h1>
+
+<p>Smart AI system to identify plant diseases and suggest treatments instantly.</p>
+
+<ul class="hero-list">
+<li>✔ Fast AI Detection</li>
+<li>✔ Accurate Results (98%)</li>
+<li>✔ Easy Upload & Camera Support</li>
+<li>✔ Instant Cure Suggestions</li>
+</ul>
+
+<div class="hero-btns">
+<button onclick="goPage('diagnose')" class="start-btn">🚀 Start Diagnosis</button>
+<button onclick="goPage('diagnose')" class="upload-btn">📤 Upload Image</button>
+</div>
+
+<div class="stats">
+<div><h2>4+</h2><p>Diseases</p></div>
+<div><h2>98%</h2><p>Accuracy</p></div>
+<div><h2>4+</h2><p>Users</p></div>
+</div>
+</div>
+
+<div class="hero-right">
+<img src="/static/images/plant1.jpg">
+<img src="/static/images/plant2.jpg">
+<img src="/static/images/plant3.jpg">
+<img src="/static/images/plant4.jpg">
+</div>
+
+</div>
+</section>
+
+<!-- DIAGNOSE section second page ke liye -->
+<section id="diagnosePage" class="page">
+
+<div class="main-section">
+<div class="container">
+
+<!-- Upload karne ka box -->
+<div class="card">
+<h2>Upload Plant Image</h2>
+
+<ul class="card-list">
+<li>✔ Upload clear plant leaf image</li>
+<li>✔ Use camera for real-time capture</li>
+<li>✔ Get instant AI result</li>
+</ul>
+
+<div class="upload-box" onclick="openFile()">📤 Click or Drop Image</div>
+
+<input type="file" id="imageInput" hidden>
+
+<div class="btn-group">
+<button onclick="openFile()">📤 Upload</button>
+<button onclick="openCamera()">📷 Camera</button>
+</div>
+</div>
+
+<!-- Result box jo show hota hai -->
+<div class="card">
+<h2>Result Preview</h2>
+
+<img id="preview" style="display:none; max-width:100%; border-radius:10px;">
+
+<button id="predictBtn" onclick="predictImage()">🌿 Analyze Plant</button>
+
+<div id="loader"></div>
+<div id="result"></div>
+</div>
+
+<!-- Products jo image ke sath link show hota hai -->
+<div class="card" id="productContainer">
+<h2>Recommended Products</h2>
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+
+
+
+<!--  LIBRARY 3rd section hai ye pura -->
+<section id="libraryPage" class="page">
+
+<h1 class="center">🌱 Disease Library</h1>
+
+<p class="center subtitle">
+Explore common plant diseases, symptoms & treatments.
+</p>
+
+<input class="search" placeholder="🔍 Search diseases...">
+
+<div class="filters">
+<button class="active">All</button>
+<button>Fungal</button>
+<button>Bacterial</button>
+<button>Viral</button>
+</div>
+
+<div class="library">
+
+<!-- FUNGAL DISEASES -->
+<div class="disease-card fungal">
+    <img src="/static/images/blight.jpg" class="disease-img">
+    <div class="tag">Fungal</div>
+    <h2>Late Blight</h2>
+    <ul>
+        <li>✔ Causes leaf decay</li>
+        <li>✔ Spreads rapidly</li>
+        <li>✔ Needs fungicide spray</li>
+    </ul>
+</div>
+
+<div class="disease-card fungal">
+    <img src="/static/images/mildew.jpg" class="disease-img">
+    <div class="tag">Fungal</div>
+    <h2>Powdery Mildew</h2>
+    <ul>
+        <li>✔ White powder spots</li>
+        <li>✔ Affects leaves</li>
+        <li>✔ Use antifungal spray</li>
+    </ul>
+</div>
+
+<div class="disease-card fungal">
+    <img src="/static/images/rust.jpg" class="disease-img">
+    <div class="tag">Fungal</div>
+    <h2>Rust Disease</h2>
+    <ul>
+        <li>✔ Orange rust patches</li>
+        <li>✔ Weakens plant</li>
+        <li>✔ Apply fungicide</li>
+    </ul>
+</div>
+
+<div class="disease-card fungal">
+    <img src="/static/images/leafspot.jpg" class="disease-img">
+    <div class="tag">Fungal</div>
+    <h2>Leaf Spot</h2>
+    <ul>
+        <li>✔ Brown/black spots</li>
+        <li>✔ Causes leaf drop</li>
+        <li>✔ Avoid excess water</li>
+    </ul>
+</div>
+
+<div class="disease-card fungal">
+    <img src="/static/images/fusarium.jpg" class="disease-img">
+    <div class="tag">Fungal</div>
+    <h2>Fusarium Wilt</h2>
+    <ul>
+        <li>✔ Yellowing leaves</li>
+        <li>✔ Stem rot at base</li>
+        <li>✔ Crop rotation helps</li>
+    </ul>
+</div>
+
+<div class="disease-card fungal">
+    <img src="/static/images/smut.jpg" class="disease-img">
+    <div class="tag">Fungal</div>
+    <h2>Loose Smut</h2>
+    <ul>
+        <li>✔ Black powdery spores</li>
+        <li>✔ Affects grains</li>
+        <li>✔ Treat seeds before planting</li>
+    </ul>
+</div>
+
+<!-- BACTERIAL DISEASES -->
+<div class="disease-card bacterial">
+    <img src="/static/images/bacterialspot.jpg" class="disease-img">
+    <div class="tag">Bacterial</div>
+    <h2>Bacterial Spot</h2>
+    <ul>
+        <li>✔ Dark leaf spots</li>
+        <li>✔ Yellow halo effect</li>
+        <li>✔ Remove infected parts</li>
+    </ul>
+</div>
+
+<div class="disease-card bacterial">
+    <img src="/static/images/wilt.jpg" class="disease-img">
+    <div class="tag">Bacterial</div>
+    <h2>Bacterial Wilt</h2>
+    <ul>
+        <li>✔ Sudden wilting</li>
+        <li>✔ No early yellowing</li>
+        <li>✔ Destroy infected plants</li>
+    </ul>
+</div>
+
+<div class="disease-card bacterial">
+    <img src="/static/images/fireblight.jpg" class="disease-img">
+    <div class="tag">Bacterial</div>
+    <h2>Fire Blight</h2>
+    <ul>
+        <li>✔ Burnt leaf appearance</li>
+        <li>✔ Affects fruit trees</li>
+        <li>✔ Prune infected areas</li>
+    </ul>
+</div>
+
+<div class="disease-card bacterial">
+    <img src="/static/images/canker.jpg" class="disease-img">
+    <div class="tag">Bacterial</div>
+    <h2>Ring Canker</h2>
+    <ul>
+        <li>✔ Circular lesions on stems</li>
+        <li>✔ Leaf yellowing</li>
+        <li>✔ Use copper-based sprays</li>
+    </ul>
+</div>
+
+<div class="disease-card bacterial">
+    <img src="/static/images/xanthomonas.jpg" class="disease-img">
+    <div class="tag">Bacterial</div>
+    <h2>Xanthomonas Leaf Blight</h2>
+    <ul>
+        <li>✔ Water-soaked spots</li>
+        <li>✔ Spreads via water</li>
+        <li>✔ Remove infected leaves</li>
+    </ul>
+</div>
+
+<!-- VIRAL DISEASES -->
+<div class="disease-card viral">
+    <img src="/static/images/leafcurl.jpg" class="disease-img">
+    <div class="tag">Viral</div>
+    <h2>Leaf Curl Virus</h2>
+    <ul>
+        <li>✔ Curled leaves</li>
+        <li>✔ Stunted growth</li>
+        <li>✔ Control insects</li>
+    </ul>
+</div>
+
+<div class="disease-card viral">
+    <img src="/static/images/mosaic.jpg" class="disease-img">  
+    <div class="tag">Viral</div>
+    <h2>Mosaic Virus</h2>
+    <ul>
+        <li>✔ Yellow mosaic pattern</li>
+        <li>✔ Reduced growth</li>
+        <li>✔ Remove infected plants</li>
+    </ul>
+</div>
+
+<div class="disease-card viral">
+    <img src="/static/images/yellowvein.jpg" class="disease-img">
+    <div class="tag">Viral</div>
+    <h2>Yellow Vein Mosaic</h2>
+    <ul>
+        <li>✔ Yellow veins</li>
+        <li>✔ Leaf distortion</li>
+        <li>✔ Use resistant seeds</li>
+    </ul>
+</div>
+
+<div class="disease-card viral">
+    <img src="/static/images/tobamovirus.jpg" class="disease-img">
+    <div class="tag">Viral</div>
+    <h2>Tobamovirus Infection</h2>
+    <ul>
+        <li>✔ Mosaic leaf pattern</li>
+        <li>✔ Wilting stems</li>
+        <li>✔ Sanitize tools</li>
+    </ul>
+</div>
+
+<div class="disease-card viral">
+    <img src="/static/images/cucumbervirus.jpg" class="disease-img">
+    <div class="tag">Viral</div>
+    <h2>Cucumber Mosaic Virus</h2>
+    <ul>
+        <li>✔ Leaf puckering</li>
+        <li>✔ Reduced yield</li>
+        <li>✔ Use resistant varieties</li>
+    </ul>
+</div>
+
+</div>
+
+
+
+
+
+
+</section>
+
+
+
+
+<!--HOW it work ,last section hai ye  -->
+
+<section id="howPage" class="page">
+
+<h1 class="how-title">⚙️ How It Works</h1>
+
+<div class="steps-container">
+
+<div class="step glass delay1">
+<div class="circle">📤</div>
+<h3>Upload Image</h3>
+<p>Take a clear photo of plant leaf or stem.</p>
+</div>
+
+<div class="line"></div>
+
+<div class="step glass delay2">
+<div class="circle">🤖</div>
+<h3>AI Analysis</h3>
+<p>Model detects patterns and diseases.</p>
+</div>
+
+<div class="line"></div>
+
+<div class="step glass delay3">
+<div class="circle">📊</div>
+<h3>Get Diagnosis</h3>
+<p>Receive instant results and confidence score.</p>
+</div>
+
+<div class="line"></div>
+
+<div class="step glass delay4">
+<div class="circle">💊</div>
+<h3>Take Action</h3>
+<p>Follow treatment recommendations.</p>
+</div>
+<!-- Moving arrows container -->
+    <div class="arrow-flow">
+      <div class="arrow">➤</div>
+      <div class="arrow">➤</div>
+      <div class="arrow">➤</div>
+      <div class="arrow">➤</div>
+    </div>
+</div>
+
+
+</section>
+
+
+
+</body>
+</html>
+
+
+
+<!-- ================= AGRIVISION AI PAGE ================= -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><h1>🤖 CHATBOT AI</h1></title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<section id="agrivisionPage" class="page">
+
+    <div class="chat-container">
+
+        <!-- 🔷 HEADER -->
+        <div class="chat-container">
+
+       <div class="chat-header">
+    <div class="header-left">
+
+        <img src="/static/images/myphoto.jpg" class="header-logo">
+
+        <span class="title"><h2>CHATBOT AI<h2/></span>
+
+    </div>
+
+    <div class="status"><h3>🟢 Online<h3></div>
+</div>
+
+    
+        <!-- 💬 CHATBOX -->
+        <div id="chatBox" class="chat-box"></div>
+
+        <!-- ✨ TYPING -->
+        <div id="typingIndicator" class="typing hidden">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- 📝 INPUT AREA -->
+        <div class="chat-input-area">
+
+            <!-- 🎤 MIC -->
+            <button class="voice-btn" onclick="startListening()">🎤</button>
+
+            
+            <!-- TEXT -->
+            <input 
+                id="userInput" 
+                type="text"
+                placeholder="Ask about plant disease or upload image..." 
+            />
+
+            <!-- SEND -->
+            <button class="send-btn" onclick="sendMessage()">➤</button>
+
+        </div>
+
+    
+
+    </div>
+
+</section>
+
+
+<!-- JS ko link karna hai -->
+<script src="/static/js/script.js"></script>
+
+</body>
+</html>
