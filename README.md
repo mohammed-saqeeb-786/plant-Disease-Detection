@@ -1,25 +1,25 @@
 # 🌿 PlantCare AI - Smart Plant Disease Detector
 
-Hey! 👋
+Hello
 Ye ek AI-based project hai jo plant ke leaves ki image dekh ke disease identify karta hai aur uska solution bhi batata hai.
 
-Simple language me 👉
-📷 Image upload karo → 🤖 AI analyze karega → 🌿 Disease + Cure bata dega
+Simple language me 
+ Image upload karo → 🤖 AI analyze karega →  Disease + Cure bata dega
 
 ---
 
-## 🚀 Kya kya kar sakta hai ye project?
+##  Kya kya kar sakta hai ye project?
 
-* 🌿 Plant disease detect karta hai (Healthy, Nutritional, Powdery, Rust)
-* 📷 Image upload ya camera se capture
-* 🎯 Accuracy ke sath prediction
-* 💊 Disease ka reason + cure batata hai
-* 🛒 Related products bhi suggest karta hai
-* 🤖 Smart chatbot (Hindi + English + Hinglish)
+*  Plant disease detect karta hai (Healthy, Nutritional, Powdery, Rust)
+*  Image upload ya camera se capture
+*  Accuracy ke sath prediction
+*  Disease ka reason + cure batata hai
+*  Related products bhi suggest karta hai
+*  Smart chatbot (Hindi + English + Hinglish)
 
 ---
 
-## 🧠 Kaise kaam karta hai?
+##  Kaise kaam karta hai?
 
 * CNN (Deep Learning model) use kiya hai
 * Model images ko analyze karta hai
@@ -28,7 +28,7 @@ Simple language me 👉
 
 ---
 
-## 📂 Project Structure (simple samjho)
+##  Project Structure (simple samjho)
 
 ```
 plant-ai/
@@ -53,7 +53,7 @@ plant-ai/
 
 ---
 
-## ⚙️ Local me kaise run kare?
+##  Local me kaise run kare?
 
 ### Step 1:
 
@@ -77,7 +77,7 @@ http://127.0.0.1:5000
 
 ---
 
-## 🌍 Online (Mobile pe use karne ke liye)
+##  Online (Mobile pe use karne ke liye)
 
 1. GitHub pe project upload karo
 2. Render pe deploy karo
@@ -87,18 +87,18 @@ http://127.0.0.1:5000
 https://your-app.onrender.com
 ```
 
-👉 Is link ko mobile me open karo
-👉 Add to Home Screen = app jaisa feel 😎
+ Is link ko mobile me open karo
+ Add to Home Screen = app jaisa feel 😎
 
 ---
 
-## 📱 Mobile App banana (optional)
+##  Mobile App banana (optional)
 
 Agar tum chaho to isko Android app bhi bana sakte ho using WebView.
 
 ---
 
-## ⚠️ Important Notes
+##  Important Notes
 
 * Dataset GitHub pe upload mat karna (heavy hota hai)
 * Model file (`model.h5`) zaroor upload karo
@@ -106,13 +106,13 @@ Agar tum chaho to isko Android app bhi bana sakte ho using WebView.
 
 ---
 
-## 👨‍💻 Developer
+##  Developer
 
 Made with ❤️ by **Saqeeb**
 
 ---
 
-## 🔥 Future Improvements
+##  Future Improvements
 
 * More diseases add karna
 * Accuracy improve karna
@@ -121,8 +121,8 @@ Made with ❤️ by **Saqeeb**
 
 ---
 
-## 💬 Final Note
+##  Final Note
 
-Agar tum beginner ho to ye project tumhare liye perfect hai AI + Web + Deployment seekhne ke liye 🚀
+Agar tum beginner ho to ye project tumhare liye perfect hai AI + Web + Deployment seekhne ke liye 
 
-Happy Coding! 😎
+Happy Coding! 
