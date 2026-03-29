@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify
-import tensorflow as tf
 import numpy as np
 from PIL import Image
 from rapidfuzz import process
