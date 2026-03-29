@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import numpy as np
+import tensorflow as tf
 from PIL import Image
 from rapidfuzz import process
 
@@ -8,9 +9,9 @@ from rapidfuzz import process
 app = Flask(__name__)
 
 # LOAD MODEL
-#model = tf.keras.models.load_model("model.h5")
+model = tf.keras.models.load_model("model.h5")
 
-#lasses = ['Healthy', 'Nutritional', 'Powdery', 'Rust']
+lasses = ['Healthy', 'Nutritional', 'Powdery', 'Rust']
 
 # Disease Info
 info = {
