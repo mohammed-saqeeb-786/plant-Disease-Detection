@@ -10,7 +10,7 @@ app = Flask(__name__)
 # LOAD MODEL
 #model = tf.keras.models.load_model("model.h5")
 
-c#lasses = ['Healthy', 'Nutritional', 'Powdery', 'Rust']
+#lasses = ['Healthy', 'Nutritional', 'Powdery', 'Rust']
 
 # Disease Info
 info = {
