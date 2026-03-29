@@ -8,9 +8,9 @@ from rapidfuzz import process
 app = Flask(__name__)
 
 # LOAD MODEL
-model = tf.keras.models.load_model("model.h5")
+#model = tf.keras.models.load_model("model.h5")
 
-classes = ['Healthy', 'Nutritional', 'Powdery', 'Rust']
+c#lasses = ['Healthy', 'Nutritional', 'Powdery', 'Rust']
 
 # Disease Info
 info = {
